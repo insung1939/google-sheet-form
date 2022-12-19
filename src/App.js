@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
-function App() {
+export default function App() {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) =>
+    axios.post(
+      "https://sheet.best/api/sheets/20564353-7caa-4910-ae1e-c3467ffe6e92",
+      data
+    );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      <input defaultValue="test" {...register("name")} />
+
+      {/* include validation with required or other standard HTML validation rules */}
+      <input {...register("hp", { required: true })} />
+
+      <input type="submit" />
+    </form>
   );
 }
-
-export default App;
