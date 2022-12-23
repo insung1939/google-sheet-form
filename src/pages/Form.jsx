@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Logo from "../Icon/Logo";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const {
@@ -9,6 +11,8 @@ export default function Form() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
 
   const [isChecked, setIsChecked] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
@@ -22,7 +26,19 @@ export default function Form() {
       setShowWarning(true);
     } else {
       setShowWarning(false);
-      console.log(data);
+      axios
+        .post(
+          "https://sheet.best/api/sheets/535f2187-d33b-45be-85b8-564d755cfc40",
+          data
+        )
+        .then((res) => {
+          console.log(res);
+          navigate("/completed");
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("오류가 발생했습니다! 관리자에게 문의해주세요");
+        });
     }
   };
 

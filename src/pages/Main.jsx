@@ -73,6 +73,7 @@ const Background1 = styled(Background)`
 const Background2 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_02.jpg);
   aspect-ratio: 5.47;
+  background-color: #131635;
 `;
 const Background3 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_03.jpg);
@@ -89,6 +90,7 @@ const Background5 = styled(Background)`
 const Background6 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_06.jpg);
   aspect-ratio: 14.3125;
+  background-color: #4d1a46;
 `;
 const Background7 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_07.jpg);
@@ -97,6 +99,7 @@ const Background7 = styled(Background)`
 const Background8 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_08.jpg);
   aspect-ratio: 10.4885;
+  background-color: #4d1a46;
 `;
 const Background9 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_09.jpg);
@@ -109,6 +112,7 @@ const Background10 = styled(Background)`
 const Background11 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_11.jpg);
   aspect-ratio: 0.1194;
+  background-color: #36183a;
 `;
 const Background12 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_12.jpg);
@@ -117,6 +121,7 @@ const Background12 = styled(Background)`
 const Background13 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_13.jpg);
   aspect-ratio: 18.32;
+  background-color: #26132c;
 `;
 const Background14 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_14.jpg);
@@ -125,6 +130,7 @@ const Background14 = styled(Background)`
 const Background15 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_15.jpg);
   aspect-ratio: 18.32;
+  background-color: #24122b;
 `;
 const Background16 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_16.jpg);
@@ -133,14 +139,17 @@ const Background16 = styled(Background)`
 const Background17 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_17.jpg);
   aspect-ratio: 18.32;
+  background-color: #22122b;
 `;
 const Background18 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_18.jpg);
   aspect-ratio: 8.2275;
+  background-color: #20122a;
 `;
 const Background19 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_19.jpg);
   aspect-ratio: 18.32;
+  background-color: #20122a;
 `;
 const Background20 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_20.jpg);
@@ -149,14 +158,17 @@ const Background20 = styled(Background)`
 const Background21 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_21.jpg);
   aspect-ratio: 18.32;
+  background-color: #1f122a;
 `;
 const Background22 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_22.jpg);
   aspect-ratio: 8.08235;
+  background-color: #1e1229;
 `;
 const Background23 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_23.jpg);
   aspect-ratio: 18.32;
+  background-color: #1e1229;
 `;
 const Background24 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_24.jpg);
@@ -169,6 +181,7 @@ const Background25 = styled(Background)`
 const Background26 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_26.jpg);
   aspect-ratio: 5.94805;
+  background-color: #231734;
 `;
 const Background27 = styled(Background)`
   background-image: url(/images/slice_2_cut_url_27.jpg);
