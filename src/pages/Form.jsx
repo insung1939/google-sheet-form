@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Logo from "../Icon/Logo";
 import { useForm } from "react-hook-form";
-import { Button } from "../styles/common";
+import { useState } from "react";
 
 export default function Form() {
   const {
@@ -9,7 +9,23 @@ export default function Form() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const [isChecked, setIsChecked] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
+
+  const handleCheckbox = (e) => {
+    setIsChecked(e.target.checked);
+  };
+
+  const onSubmit = (data) => {
+    if (!isChecked) {
+      setShowWarning(true);
+    } else {
+      setShowWarning(false);
+      console.log(data);
+    }
+  };
+
   return (
     <Layout>
       <Header>
@@ -77,6 +93,45 @@ export default function Form() {
             />
             {errors.group && <ErrorText>입력을 완료해주세요.</ErrorText>}
           </InputWrapper>
+          <CheckedLabel>
+            <CheckBox
+              type="checkbox"
+              checked={isChecked}
+              onChange={(e) => handleCheckbox(e)}
+            />
+            <CheckText>개인정보 수집 • 이용 동의</CheckText>
+          </CheckedLabel>
+          {showWarning && (
+            <ErrorText>개인정보 수집 • 이용 동의를 체크해주세요.</ErrorText>
+          )}
+
+          <NumberOl>
+            <Li>
+              본인은 한국대학생IT경영학회(KUSITMS)의 [강연회 참석자 모집]과
+              관련하여 다음 각 호의 정보를 수집 및 이용하는 것에 동의합니다.
+              <br />
+              가. 수집 • 이용 목적
+              <CustomOl>
+                <Li>강연회 참석자 모집</Li>
+              </CustomOl>
+              나. 수집하는 개인정보의 항목
+              <CustomOl>
+                <Li>
+                  신청자 : 성명, 성별, 생년월일, 전화번호, 소속대학, 전공 등
+                </Li>
+              </CustomOl>
+            </Li>
+            <Li>
+              본인은 동의서가 작성된 때로부터 1항의 사용 목적이 종료되는
+              때(일주일)까지 한국대학생IT경영학회(KUSITMS) 26기 강연회 TF팀이
+              본인의 개인정보를 보유하는 것에 동의합니다.
+            </Li>
+            <Li>
+              본인은 상기 개인정보의 수집에 대하여 거부할 권리를 보유하고
+              있으며, 동의를 거부하면 명단에서 제외될 수 있다는 사실을 인지한
+              상태에서 작성된 것임을 확인합니다.
+            </Li>
+          </NumberOl>
           <Submit type="submit" value="완료하기" />
         </FormLayout>
       </Main>
@@ -137,11 +192,13 @@ const Info = styled.p`
 `;
 
 const FormLayout = styled.form`
+  text-align: center;
   margin-top: 63px;
 `;
 
 const InputWrapper = styled.div`
   display: flex;
+  text-align: left;
   flex-direction: column;
   gap: 6px;
   margin-bottom: 44px;
@@ -195,4 +252,55 @@ const Submit = styled.input`
   padding: 10px 0;
   width: 275px;
   border: none;
+  margin-top: 81px;
+`;
+
+const CheckedLabel = styled.div`
+  display: flex;
+  align-items: center;
+  user-select: none;
+  margin-top: 81px;
+  gap: 10px;
+`;
+
+const CheckBox = styled.input`
+  appearance: none;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.66667 24C1.93333 24 1.30533 23.7391 0.782667 23.2173C0.260889 22.6947 0 22.0667 0 21.3333V2.66667C0 1.93333 0.260889 1.30533 0.782667 0.782667C1.30533 0.260889 1.93333 0 2.66667 0H21.3333C22.0667 0 22.6947 0.260889 23.2173 0.782667C23.7391 1.30533 24 1.93333 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6947 23.7391 22.0667 24 21.3333 24H2.66667ZM10.1333 17.0333C10.3111 17.0333 10.4778 17.0058 10.6333 16.9507C10.7889 16.8947 10.9333 16.8 11.0667 16.6667L18.6333 9.1C18.8778 8.85556 19 8.55556 19 8.2C19 7.84444 18.8667 7.53333 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667L7.23333 10.9667C6.98889 10.7222 6.68889 10.6 6.33333 10.6C5.97778 10.6 5.66667 10.7333 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.33333 16.8 9.47778 16.8947 9.63333 16.9507C9.78889 17.0058 9.95556 17.0333 10.1333 17.0333V17.0333Z' fill='white'/%3E%3C/svg%3E%0A");
+  background-size: 100% 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  :checked {
+    border-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.66667 24C1.93333 24 1.30533 23.7391 0.782667 23.2173C0.260889 22.6947 0 22.0667 0 21.3333V2.66667C0 1.93333 0.260889 1.30533 0.782667 0.782667C1.30533 0.260889 1.93333 0 2.66667 0H21.3333C22.0667 0 22.6947 0.260889 23.2173 0.782667C23.7391 1.30533 24 1.93333 24 2.66667V21.3333C24 22.0667 23.7391 22.6947 23.2173 23.2173C22.6947 23.7391 22.0667 24 21.3333 24H2.66667ZM10.1333 17.0333C10.3111 17.0333 10.4778 17.0058 10.6333 16.9507C10.7889 16.8947 10.9333 16.8 11.0667 16.6667L18.6333 9.1C18.8778 8.85556 19 8.55556 19 8.2C19 7.84444 18.8667 7.53333 18.6 7.26667C18.3556 7.02222 18.0444 6.9 17.6667 6.9C17.2889 6.9 16.9778 7.02222 16.7333 7.26667L10.1333 13.8667L7.23333 10.9667C6.98889 10.7222 6.68889 10.6 6.33333 10.6C5.97778 10.6 5.66667 10.7333 5.4 11C5.15556 11.2444 5.03333 11.5556 5.03333 11.9333C5.03333 12.3111 5.15556 12.6222 5.4 12.8667L9.2 16.6667C9.33333 16.8 9.47778 16.8947 9.63333 16.9507C9.78889 17.0058 9.95556 17.0333 10.1333 17.0333Z' fill='%23D70051'/%3E%3C/svg%3E%0A");
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+  }
+`;
+
+const CheckText = styled.p`
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 180%;
+  color: white;
+`;
+
+const NumberOl = styled.ol`
+  padding-left: 15px;
+`;
+
+const Li = styled.li`
+  text-align: left;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 180%;
+  color: rgba(255, 255, 255, 0.79);
+  word-break: keep-all;
+`;
+
+const CustomOl = styled(NumberOl)`
+  padding-left: 30px;
 `;
