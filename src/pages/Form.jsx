@@ -266,7 +266,7 @@ const Submit = styled.input`
   font-size: 17px;
   font-weight: 700;
   padding: 10px 0;
-  width: 275px;
+  width: 100%;
   border: none;
   margin-top: 81px;
 `;
