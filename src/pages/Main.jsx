@@ -95,6 +95,7 @@ const Background6 = styled(Background)`
 const Background7 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_07.jpg);
   aspect-ratio: 17.8441;
+  background-color: #4d1a46;
 `;
 const Background8 = styled(Background)`
   background-image: url(/images/slice_1_cut_url_08.jpg);

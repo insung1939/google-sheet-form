@@ -124,7 +124,7 @@ export default function Form() {
           <NumberOl>
             <Li>
               본인은 한국대학생IT경영학회(KUSITMS)의 [강연회 참석자 모집]과
-              관련하여 다음 각 호의 정보를 수집 및 이용하는 것에 동의합니다.
+              관련하여 다음 각 호의  정보를 수집 및 이용하는 것에 동의합니다.
               <br />
               가. 수집 • 이용 목적
               <CustomOl>
